@@ -45,32 +45,29 @@ Each page of the application is represented by a **Page Object Class** that cont
 
 ```js
 // tests/registerPage.js
-class RegisterPage {
+export class RegisterPage {
   constructor(page) {
     this.page = page;
-    this.firstName = page.locator("#firstName");
-    this.lastName = page.locator("#lastName");
-    this.email = page.locator("#userEmail");
-    this.gender = page.locator('input[name="gender"]');
-    this.mobile = page.locator("#userNumber");
-    this.submitButton = page.locator("#submit");
+
+    // Locators
+    this.firstNameInput = page.locator("#firstName");
+    this.lastNameInput = page.locator("#lastName");
+    // ...more locators and the test asset
   }
 
-  async goto() {
-    await this.page.goto("https://yang-react.web.app/");
-  }
+  async register() {
+    // Fill fields
+    await this.firstNameInput.fill("John");
+    await this.lastNameInput.fill("Doe");
+    // ...other input fields
 
-  async register(formData) {
-    await this.firstName.fill(formData.firstName);
-    await this.lastName.fill(formData.lastName);
-    await this.email.fill(formData.email);
-    await this.gender.first().check(); // Example: selects first gender option
-    await this.mobile.fill(formData.mobile);
-    await this.submitButton.click();
+    // Select State
+    await this.stateSelect.selectOption({ label: "New York" });
+
+    // Wait for city to become enabled
+    await this.page.waitForSelector("#city:not([disabled])");
   }
 }
-
-module.exports = { RegisterPage };
 ```
 
 ## 🧪 Example Test: `form.spec.js`
