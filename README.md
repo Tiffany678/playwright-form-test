@@ -61,11 +61,11 @@ export class RegisterPage {
     await this.lastNameInput.fill("Doe");
     // ...other input fields
 
-    // Select State
+    // Select State and Wait for city to become enabled
     await this.stateSelect.selectOption({ label: "New York" });
-
-    // Wait for city to become enabled
     await this.page.waitForSelector("#city:not([disabled])");
+
+    // ...other actions
   }
 }
 ```
