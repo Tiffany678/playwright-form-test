@@ -73,7 +73,7 @@ export class RegisterPage {
 ## 🧪 Example Test: `form.spec.js`
 
 ```js
-// tests/form.spec.js
+// tests/regression/form.spec.js
 test("Student Registration Form submission", async ({ page }) => {
   const registerPage = new RegisterPage(page);
 
