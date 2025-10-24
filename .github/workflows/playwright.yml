@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm' 
+          cache: "npm"
 
       # 3️⃣ Install dependencies
       - name: Install dependencies
@@ -32,7 +32,7 @@ jobs:
 
       # 5️⃣ Run Playwright tests
       - name: Run Playwright test tests/regression/form.spec.js and api.spec.js
-         run: >
+        run: >
           npx playwright test
           tests/regression/form.spec.js
           tests/api/users.api.spec.js
