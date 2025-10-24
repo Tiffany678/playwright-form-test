@@ -16,7 +16,7 @@ export class RegisterPage {
     this.submitButton = page.locator('button[type="submit"]');
 
     // Test asset
-    this.imageFile = "./tests/dimsum.png";
+    this.imageFile = "assets/images/dimsum.png";
   }
 
   async register() {
@@ -48,4 +48,6 @@ export class RegisterPage {
 
     await this.submitButton.click();
   }
+
+  
 }
