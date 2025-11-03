@@ -3,7 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   use: {
-    baseURL: process.env.BASE_URL || "https://yang-react.web.app/",
+    baseURL: "https://www.saucedemo.com/",
+    //|| "https://yang-react.web.app/",
     trace: "on-first-retry",
   },
   projects: [
@@ -12,4 +13,5 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
+  reporter: [["html", { open: "never" }]],
 });
